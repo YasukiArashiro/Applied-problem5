@@ -27,4 +27,12 @@ Rails.application.routes.draw do
     resources :favorites, only: [:create, :destory]
     resource :book_comments, only: [:create, :destroy]
   end
+
+  resource :search, only: [:serch_user, :search_book] do
+    collection do
+      get 'search_user'
+      get 'search_book'
+    end
+  end
+
 end

@@ -11,5 +11,9 @@ class Book < ApplicationRecord
     	Favorite.find_by(user_id: user_id, book_id: book_id)
     end
 
+    def self.search(search)
+    	return Book.all unless search
+    	Book.where(['title LIKE(?)', "%#{search}%"])
+    end
 
 end

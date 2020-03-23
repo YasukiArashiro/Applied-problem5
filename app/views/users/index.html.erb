@@ -4,6 +4,14 @@
 	<%= render 'layouts/header' %>
 
 	<div class="container" style="margin-top: 70px;">
+		<h2>検索</h2>
+		<%= form_tag(search_user_search_path, method: :get) do %>
+			<%= text_field_tag :search %>
+			<%= submit_tag 'Search', name: nil %>
+		<% end %>
+	</div>
+
+	<div class="container" style="margin-top: 70px;">
 		<div class="row">
 			<%= render 'layouts/sidebar' , user: current_user, book: @book %>
 
