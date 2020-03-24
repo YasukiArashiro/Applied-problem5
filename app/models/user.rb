@@ -35,9 +35,20 @@ class User < ApplicationRecord
     passive_relationships.find_by(following_id: user.id).present?
   end
 
-  def self.search(search)
+  def self.search_start(search)
+    return User.all unless search
+    User.where(['name LIKE(?)', "%#{search}"])
+  end
+
+  def self.search_back(search)
+    return User.all unless search
+    User.where(['name LIKE(?)', "#{search}%"])
+  end
+
+  def self.search_part(search)
     return User.all unless search
     User.where(['name LIKE(?)', "%#{search}%"])
   end
+
 
 end

@@ -30,6 +30,7 @@ Rails.application.routes.draw do
 
   resource :search, only: [:serch_user, :search_book] do
     collection do
+      get 'search'
       get 'search_user'
       get 'search_book'
     end

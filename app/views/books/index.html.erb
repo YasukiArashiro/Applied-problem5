@@ -2,15 +2,9 @@
 
 <%= render 'layouts/header' %>
 
-<div class="container" style="margin-top: 70px;">
-	<h2>検索</h2>
-	<%= form_tag(search_book_search_path, method: :get) do %>
-		<%= text_field_tag :search %>
-		<%= submit_tag 'Search', name: nil %>
-	<% end %>
-</div>
+<%= render 'layouts/search' %>
 
-<div class="container" style="margin-top: 70px;">
+<div class="container">
 	<div class="row">
 
 		<% if @book.errors.any? %>
